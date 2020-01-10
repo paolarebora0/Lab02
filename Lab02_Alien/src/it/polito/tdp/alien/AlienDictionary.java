@@ -5,10 +5,11 @@ import java.util.List;
 
 public class AlienDictionary {
 
-	private List<Word> dictionary;
+	private List<WordEnhanced> dictionary;
+	
 	
 	public AlienDictionary() {
-		dictionary = new ArrayList<Word>();
+		dictionary = new ArrayList<WordEnhanced>();
 	}
 	
 	public void resetDictionary() {
@@ -17,22 +18,23 @@ public class AlienDictionary {
 	
 	public void addWord(String alienWord, String translation) {
 		
-		Word w = new Word(alienWord,translation);
+		WordEnhanced w = new WordEnhanced(alienWord,translation);
 		
 		if(dictionary.contains(w)) {
 			dictionary.get(dictionary.indexOf(w)).setTranslation(translation);
 			return;
 		}
-		
+		w.setTranslation(translation);
 		dictionary.add(w);
 	}
 	
 	public String translateWord(String alienWord) {
 		
-		Word w = new Word(alienWord);
+		WordEnhanced w = new WordEnhanced(alienWord);
 		if(dictionary.contains(w)) {
 			return dictionary.get(dictionary.indexOf(w)).getTranslation();
 		}
-		else return null;
+		else 
+			return null;
 	}
 }

@@ -48,6 +48,7 @@ public class AlienController {
     void doTranslate(ActionEvent event) {
     	txtResult.clear();
     	String testo = txtWord.getText().toLowerCase();
+    	
     	if(testo == null || testo.length() == 0) {
     		txtResult.setText("Inserire una o due parole");
     		return;
@@ -64,6 +65,7 @@ public class AlienController {
     	if(st.hasMoreTokens()) {
     		
     		String translation =  st.nextToken();
+    		
     		if(!alienWord.matches("[a-zA-Z]*") || !translation.matches("[a-zA-Z]*")) {
     			txtResult.setText("Inserire solo caratteri alfabetici");
     			return;
@@ -74,6 +76,7 @@ public class AlienController {
     		txtResult.setText("La parola '"+ alienWord + "' con traduzione '"+ translation+"' è stata aggiunta al dizionario!");
     		
     	} else {
+    		
     		if(!alienWord.matches("[a-zA-Z]*")) {
     			txtResult.setText("Inserire solo caratteri alfabetici");
     			return;
